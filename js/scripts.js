@@ -1,24 +1,21 @@
 // business logic
+// Order object that will hold the total price for the pizza order, the address, and array of pizzas
+function Order() {
+  this.price = 0.0;
+  this.address = "";
+  this.pizzas = [];
+}
+
+Order.prototype.add = function(pizza) {
+  this.pizzas.push(pizza);
+  this.price += pizza.price;
+}
+
 function Pizza(size, toppings) {
   this.size = size;
   this.toppings = toppings;
   this.price = 5.0;
 }
-// var sizeArray = {
-//     "small": 0,
-//     "medium": 2,
-//     "large": 4
-// };
-//
-// var toppingsArray = {
-//     "mushrooms": 1,
-//     "pepperoni": 1.50,
-//     "tomatoes": 0.75,
-//     "olives": 1,
-//     "onions": 0.50,
-//     "pineapple": 1.50,
-//     "ham": 1.25
-// };
 
 var sizeMap = new Map();
 sizeMap.set("small", 0);
@@ -46,16 +43,33 @@ Pizza.prototype.calculatePrice = function() {
   return pizzaPrice;
 };
 
-
 // user interface logic
 $(document).ready(function() {
   // if a radio button for a delivery is clicked, display a form to enter the address
+
+  var order = new Order();
+
   $(".orderOption").click(function() {
     if ($("input:radio[name=orderOption]:checked").val() === "delivery") {
       $(".deliveryForm").show();
     } else {
       $(".deliveryForm").hide();
     }
+  });
+
+  $("#addOrder").click(function(event){
+    event.preventDefault();
+    var size = $("input:radio[name=pizzaSize]:checked").val();
+    var toppings = [];
+    $("input:checkbox[name=pizzaTopping]:checked").each(function() {
+      toppings.push($(this).val());
+    });
+
+    var newPizza = new Pizza(size, toppings);
+    newPizza.price = newPizza.calculatePrice();
+    order.add(newPizza);
+    alert(order.price + " " + order.pizzas);
+
   });
 
   $("form#pizzaOrder").submit(function(event){
@@ -67,12 +81,11 @@ $(document).ready(function() {
       toppings.push($(this).val());
     });
 
-    //alert(toppings);
     // receive the name and the address of the customer
     var customerName = $("#name").val();
     var customerAddress = $("#street").val() + ", " +  $("#city").val() + ", " +  $("#state").val() + ", " +  $("#zip").val();
-    var newPizza = new Pizza(size, toppings);
+    order.address = customerAddress;
 
-    alert(newPizza.calculatePrice() + " + tax");
+    alert(order.address);
   });
 });
