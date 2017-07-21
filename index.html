@@ -37,6 +37,38 @@
           <input type="checkbox" name="pizzaTopping" value="pineapple"> Pineapple<br>
           <input type="checkbox" name="pizzaTopping" value="ham"> Ham<br>
         </div>
+        <h3>Select a delivery or a pick up option:</h3>
+        <div class="orderOption">
+          <label class="radio-inline">
+            <input type="radio" name="orderOption" value="pickUp" checked>Pick up
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="orderOption" value="delivery">Delivery
+          </label>
+        </div>
+        <div class="deliveryForm">
+          <div class="form-group">
+            <label for="name">Enter your first and last name:</label>
+            <input id="name" type="text">
+          </div>
+          <div class="form-group">
+            <label for="street">Enter your stret and apt number:</label>
+            <input id="street" type="text">
+          </div>
+          <div class="form-group">
+            <label for="street">Enter your city:</label>
+            <input id="city" type="text">
+          </div>
+          <div class="form-group">
+            <label for="state">Enter your state:</label>
+            <input id="state" type="text">
+          </div>
+          <div class="form-group">
+            <label for="state">Enter your zip:</label>
+            <input id="zip" type="text">
+          </div>
+        </div>
+        </div>
         <button type="submit" class="btn">Submit your order</button>
       </form>
 
