@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pizza</title>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/scripts.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Create your own pizza!</h1>
+      <h3>Select your pizza size:</h3>
+      <form id="pizzaOrder">
+        <div class="radio">
+          <label>
+            <input type="radio" name="pizzaSize" value="small" checked>Small
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="pizzaSize" value="medium">Medium
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="pizzaSize" value="large">Large
+          </label>
+        </div>
+        <div class="form-group">
+          <h3>Select your toppings:</h3>
+          <input type="checkbox" name="pizzaTopping" value="mushrooms"> Mushrooms<br>
+          <input type="checkbox" name="pizzaTopping" value="pepperoni"> Pepperoni<br>
+          <input type="checkbox" name="pizzaTopping" value="tomatoes"> Tomatoes<br>
+          <input type="checkbox" name="pizzaTopping" value="olives"> Olives<br>
+          <input type="checkbox" name="pizzaTopping" value="onions"> Onions<br>
+          <input type="checkbox" name="pizzaTopping" value="pineapple"> Pineapple<br>
+          <input type="checkbox" name="pizzaTopping" value="ham"> Ham<br>
+        </div>
+        <button type="submit" class="btn">Submit your order</button>
+      </form>
+
+    </div>
+  </body>
+</html>
