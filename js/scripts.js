@@ -22,7 +22,7 @@ Order.prototype.showOrder = function() {
     order = "Order of " + this.pizzas.length + " pizza(s) for the total of $" + this.price + " is being prepared.";
     var pizzaDetails = "";
     for (var i = 0; i < this.pizzas.length; i++) {
-      var pizzaDetails = "Pizza " + " has " + this.pizzas[i].toppings + " topping(s) on it";
+      var pizzaDetails = "Pizza " + " has " + this.pizzas[i].toppings + " topping(s) on it. ";
       order+= pizzaDetails;
     }
     if (this.isForDelivery) {
@@ -54,6 +54,7 @@ toppingsMap.set("olives", 1);
 toppingsMap.set("onions", 0.50);
 toppingsMap.set("pineapple", 1.50);
 toppingsMap.set("ham", 1.25);
+toppingsMap.set("no_topings", 0.00);
 
 // Function that calculates a single pizza price
 Pizza.prototype.calculatePrice = function() {
